@@ -1,6 +1,6 @@
 # FlakeTranslate pilot 2: NonDex (Java/Maven) → pynondex (Python/pytest)
 
-The second hand-run FlakeTranslate pilot. The first one (`../README.md`) ported iDFlakies, where
+The second FlakeTranslate pilot, run with Claude Code. The first one (`../README.md`) ported iDFlakies, where
 nearly everything carried over. NonDex was picked as the case where **the concept itself
 does not carry over directly**. NonDex finds *implementation-dependent* (ID) tests: tests that
 assume a deterministic behavior of an API whose specification allows several behaviors
@@ -146,5 +146,5 @@ mvn edu.illinois:nondex-maven-plugin:2.1.7:debug
 - One tiny project with a single developer (me) choosing both the planted tests and the mapping.
   The next steps are real Python projects with known ID tests and an independent check of the API
   mapping.
-- Translated by hand. For the thesis, an agent performs these steps and is compared with a plain
+- Translated with Claude Code, with the steps guided manually. For the thesis, an agent performs these steps and is compared with a plain
   coding-agent baseline.

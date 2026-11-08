@@ -1,6 +1,6 @@
 # FlakeTranslate pilot: iDFlakies (Java/Maven/JUnit) → pyflakies (Python/pytest)
 
-This is a hand-run version of the FlakeTranslate workflow on one small tool. It splits
+This is a version run with Claude Code of the FlakeTranslate workflow on one small tool. It splits
 iDFlakies into its **core logic** and its **ecosystem integration**, translates the core,
 rewires the integration to pytest, and then checks the result against flaky tests that
 were planted with known answers and against the original Java tool.
@@ -97,5 +97,5 @@ mvn edu.illinois.cs:idflakies-maven-plugin:2.0.0:detect -Ddetector.detector_type
   validated only against the planted answers, not against the original tool.
 - The test projects are tiny. The next step is real Python projects with known OD tests (e.g., from the
   iPFlakies dataset), compared against iPFlakies, which is the existing hand-written Python port.
-- I did the translation by hand. For the thesis, the same steps (decompose → map → translate → wire →
+- The translation was done with Claude Code, with the steps guided manually. For the thesis, the same steps (decompose → map → translate → wire →
   validate) would be carried out by an agent and compared with a plain coding-agent baseline.

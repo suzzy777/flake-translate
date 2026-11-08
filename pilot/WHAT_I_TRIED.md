@@ -20,7 +20,7 @@ translated tool **still finds the same flaky tests**? And what goes wrong when i
 5. **Ran the original Java tool on the Java twin and my Python port on the Python twin** over many seeds,
    and compared how often each found each planted test.
 
-I did all of this by hand, in a chat. No harness existed yet.
+I did all of this using Claude Code, step by step in a session. No harness existed yet.
 
 ---
 
@@ -135,7 +135,7 @@ knowledge, runner checks, planted twin projects, and a comparison over many seed
 ## Honest limits
 
 - The twin projects are tiny, and I designed both the tests and the answers.
-- Everything was done by hand. It isn't an automated harness yet, and there's no comparison with a plain agent yet.
+- Everything was done in a Claude Code session, with me guiding the steps. It isn't an automated harness yet, and there's no comparison with a plain agent yet.
 - Only Java → Python, for two tools.
 
 ## Next steps
