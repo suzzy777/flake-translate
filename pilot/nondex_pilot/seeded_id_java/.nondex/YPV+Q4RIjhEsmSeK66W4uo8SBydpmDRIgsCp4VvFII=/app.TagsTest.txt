@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: app.TagsTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in app.TagsTest
+testJoined(app.TagsTest)  Time elapsed: 0.004 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[alpha,delta,beta,gamm]a> but was:<[gamma,beta,delta,alph]a>
+	at app.TagsTest.testJoined(TagsTest.java:4)
+

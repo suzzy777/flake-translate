@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: app.TagsTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in app.TagsTest
+testLocalSet(app.TagsTest)  Time elapsed: 0.003 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[x,y,z]> but was:<[y,z,x]>
+	at app.TagsTest.testLocalSet(TagsTest.java:5)
+

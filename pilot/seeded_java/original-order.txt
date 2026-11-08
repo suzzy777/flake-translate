@@ -1,0 +1,12 @@
+app.CacheTest.testAWarmCache
+app.CacheTest.testBReadCache
+app.CacheTest.testCSize
+app.ListenerTest.testConstructor
+app.ListenerTest.testUnrelated
+app.MathTest.testAdd
+app.MathTest.testMul
+app.MathTest.testSub
+app.NetworkTest.testFlakyTimeout
+app.NetworkTest.testOk
+app.SentenceFactoryTest.testCreateGga
+app.SentenceFactoryTest.testUnregisterVdm

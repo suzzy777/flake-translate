@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: app.ReportsTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! - in app.ReportsTest
+testFirstReport(app.ReportsTest)  Time elapsed: 0.012 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<report_[c].txt> but was:<report_[a].txt>
+	at app.ReportsTest.testFirstReport(ReportsTest.java:8)
+

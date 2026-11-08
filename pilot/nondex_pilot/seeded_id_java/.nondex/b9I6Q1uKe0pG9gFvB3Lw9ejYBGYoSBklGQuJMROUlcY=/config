@@ -1,0 +1,11 @@
+nondexFilter=.*
+nondexMode=FULL
+nondexSeed=1140398
+nondexStart=31
+nondexEnd=32
+nondexPrintstack=false
+nondexDir=/home/srafi/flake_translate/pilot/nondex_pilot/seeded_id_java/.nondex
+nondexJarDir=/home/srafi/flake_translate/pilot/nondex_pilot/seeded_id_java/.nondex
+nondexExecid=b9I6Q1uKe0pG9gFvB3Lw9ejYBGYoSBklGQuJMROUlcY=
+nondexLogging=CONFIG
+test=app.TagsTest#testLocalSet

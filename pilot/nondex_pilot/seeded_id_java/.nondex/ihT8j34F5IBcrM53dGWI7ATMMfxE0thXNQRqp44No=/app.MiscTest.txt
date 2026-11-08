@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: app.MiscTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in app.MiscTest
+testKnownBug(app.MiscTest)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: expected:<3> but was:<2>
+	at app.MiscTest.testKnownBug(MiscTest.java:5)
+
