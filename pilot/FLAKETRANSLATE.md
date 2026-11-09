@@ -59,6 +59,17 @@ Risks a reviewer will raise:
 
 ## 4. Related work
 
+### What other work changes vs. what we change
+
+| Work | What it changes | What it moves |
+|---|---|---|
+| Code translation (AlphaTrans, RepoTransBench, ...) | the **language** (Java → Python, C → Rust) | a program's own code; build files and dependencies are a side problem, often done by hand |
+| Testing-framework migration (JUnit 4 → 5, unittest → pytest) | the **testing framework**, within one language | *tests*, not tools that run tests |
+| **FlakeTranslate** | the **ecosystem**: language, testing framework, build system, or any mix | a *tool* whose main job is controlling how tests run; its glue must be rebuilt, not translated |
+
+An **ecosystem** = programming language + testing framework + build system
+(e.g., Java + JUnit 4 + Maven, or Python + pytest + pip).
+
 ### a) Code translation with LLMs (closest area)
 - **AlphaTrans** (FSE 2025): repository-level Java → Python. Splits a project into fragments, translates
   them, and validates them with the project's own translated tests. About 25% of fragments pass validation.
@@ -84,7 +95,7 @@ a tool whose job is to *control how other programs' tests run*, and none validat
 the bugs".
 
 ### b) Test framework migration
-- **unittest → pytest with LLMs** (2026): about half of the migrated tests failed. Fixtures and setup were
+- **unittest → pytest with LLMs** (Alves, Montandon, Hora, 2026): about half of the migrated tests failed. Fixtures and setup were
   the hardest parts. https://arxiv.org/abs/2602.02964
 - **JUnit 4 → 5:** done with rule-based tools (OpenRewrite, IntelliJ), not LLMs.
   https://symflower.com/en/company/blog/2024/tools-for-junit-4-to-5-migration/
