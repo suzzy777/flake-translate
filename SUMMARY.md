@@ -30,9 +30,17 @@ on real projects.
 | C# | Serilog | **12 OD victims**, 1 polluter (`SelfLog` never disabled), hand-confirmed | **4 ID** (reflection order) | no issue found; **all still in current Serilog** (`dev`, checked 2026-11-20): SelfLog test still never disables, ID tests still expect fixed property order |
 | C# | FluentValidation | none | none | — |
 | Q# | QuantumLibraries | builds and passes (283 tests); detect run not done yet | n/a | — |
-| Rust | dotenvy | **7 OD victims**, 1 polluter (env vars leaked), hand-confirmed | nothing to shuffle | **yes:** issue #127 (2024), fix PR #176 (2 days old) |
-| Rust | config-rs, walkdir, env_logger, tracing-subscriber | none | none / nothing to shuffle | — |
-| Cucumber | generic-webhook-trigger-plugin (32 scenarios) | none | none | — |
+| Rust | dotenvy (30 tests) | **7 OD victims**, 1 polluter (`tests::test_substitution` sets `KEY`/`KEY1` env vars, never removes them), hand-confirmed | nothing to shuffle* | **yes:** issue #127 (2024, cause unknown there), fix PR #176 (2026-11-18, not merged) |
+| Rust | walkdir (48 tests) | none | none (176 folder listings shuffled; tests sort results) | — |
+| Rust | config-rs (13 tests) | none | none | — (weak: most of its tests aren't wired up to run) |
+| Rust | env_logger (19 tests) | none | nothing to shuffle* | — |
+| Rust | tracing-subscriber (250 tests, 13 test programs) | none | nothing to shuffle* | — |
+| Cucumber | generic-webhook-trigger-plugin (32 scenarios + 109 JUnit tests) | none (30 orders) | none (30 NonDex runs on scenarios; 1 real-NonDex run on JUnit tests) | — |
+
+\* "Nothing to shuffle": no test lists a folder, the only thing rsnondex shuffles (Rust's `HashMap` is already random every run).
+
+**New vs. known:** only the Serilog bugs are both unreported and still present today. The qiskit OD was never
+reported but is gone in current qiskit; the dotenvy OD was already reported.
 
 ## 3. Difficulties, and how they were fixed (often after several tries)
 
@@ -76,8 +84,9 @@ on real projects.
 3. **Broken tools look fine.** Several times a run reported "none" because it ran 0 tests, or a first
    translation ran without errors but was wrong. Planted twins and checks like "how many tests actually ran?"
    caught these.
-4. **The ports find real bugs:** qiskit (1 OD), Serilog (12 OD + 4 ID), dotenvy (7 OD, matches a known
-   open issue whose cause was published 2 days before).
+4. **The ports find real bugs:** qiskit (1 OD, never reported, since fixed by a redesign), Serilog (12 OD + 4 ID,
+   unreported and still present), dotenvy (7 OD, matches a known open issue; our tool also gives the exact
+   polluter, all 7 victims and a reproducible order, where the issue had 1 rare CI failure).
 
 ## Limits
 
