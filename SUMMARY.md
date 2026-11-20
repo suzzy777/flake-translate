@@ -26,8 +26,8 @@ on real projects.
 |---|---|---|---|---|
 | Python | mdutils (iDoFT) | **8/8 known OD + 7 polluters** | n/a | yes (iDoFT) |
 | Java (originals, for reference) | marine-api, JSON-java | 12/12 OD | 6/6 ID | yes (iDoFT) |
-| qiskit | qiskit-terra 0.25 | **1 OD** (`test_conditional_and_loop`, polluter changes a global controller list) | **178 seed-dependent** (separate category, not NonDex ID) | not checked |
-| C# | Serilog | **12 OD victims**, 1 polluter (`SelfLog` never disabled), hand-confirmed | **4 ID** (reflection order) | not checked |
+| qiskit | qiskit-terra 0.25 | **1 OD** (`test_conditional_and_loop`, polluter changes a global controller list) | **178 seed-dependent** (separate category, not NonDex ID) | OD: no issue found; **gone in current qiskit** (pass-manager redesign removed the global controller list; tests rewritten). Seed-dependent: not checked |
+| C# | Serilog | **12 OD victims**, 1 polluter (`SelfLog` never disabled), hand-confirmed | **4 ID** (reflection order) | no issue found; **all still in current Serilog** (`dev`, checked 2026-11-20): SelfLog test still never disables, ID tests still expect fixed property order |
 | C# | FluentValidation | none | none | — |
 | Q# | QuantumLibraries | builds and passes (283 tests); detect run not done yet | n/a | — |
 | Rust | dotenvy | **7 OD victims**, 1 polluter (env vars leaked), hand-confirmed | nothing to shuffle | **yes:** issue #127 (2024), fix PR #176 (2 days old) |
@@ -85,5 +85,5 @@ on real projects.
   run (Cucumber).
 - Twins are small and written by me.
 - Few real projects per ecosystem.
-- Not yet checked whether the qiskit and Serilog bugs are already known.
+- Seed-dependent qiskit results not checked against issues.
 - Still to run: Q# detect, 15 qiskit folders.
